@@ -1,8 +1,8 @@
 {
   "name": "functionize",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Turns an object into an object that can be called as a function",
-  "main": "index.js",
+  "main": "functionize.js",
   "scripts": {
     "pretest": "node_modules/.bin/jshint functionize.js test.js",
     "test": "node_modules/.bin/mocha --reporter spec"
