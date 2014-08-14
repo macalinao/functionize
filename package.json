@@ -1,6 +1,6 @@
 {
   "name": "functionize",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Turns an object into an object that can be called as a function",
   "main": "index.js",
   "scripts": {
