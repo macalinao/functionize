@@ -4,20 +4,27 @@
   "description": "Turns an object into an object that can be called as a function",
   "main": "index.js",
   "scripts": {
-    "pretest": "node_modules/.bin/jshint index.js test.js"
+    "pretest": "node_modules/.bin/jshint functionize.js test.js",
     "test": "node_modules/.bin/mocha"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/simplyianm/functionize"
   },
-  "keywords": ["browser", "functional", "server", "util"],
+  "keywords": [
+    "browser",
+    "functional",
+    "server",
+    "util"
+  ],
   "author": "Ian Macalinao <me@ian.pw>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/simplyianm/functionize/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "lodash": "^2.4.1"
+  },
   "devDependencies": {
     "chai": "~1.8.1",
     "mocha": "~1.17.0"
