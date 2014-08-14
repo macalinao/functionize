@@ -1,24 +1,37 @@
 'use strict';
 
-var _ = require('lodash');
+(function() {
+  var hasRequire = typeof require !== 'undefined';
 
-function functionize(object, fn) {
-  var ret = _.bind(fn, object);
+  var root = this;
+  var _ = root._;
 
-  // Bind all properties
-  _.forIn(object, function(value, key) {
-    if (typeof value === 'function') {
-      ret[key] = _.bind(value, object);
-    } else {
-      ret[key] = value;
+  if (typeof _ === 'undefined') {
+    if (hasRequire) {
+      _ = require('lodash');
     }
-  });
+  }
 
-  return ret;
-}
+  if (typeof exports !== 'undefined') {
+    if (typeof module !== 'undefined' && module.exports) {
+      module.exports = functionize;
+    }
+  } else {
+    root.functionize = functionize;
+  }
 
-if (typeof window === 'undefined' && module) {
-  module.exports = functionize;
-} else if (window) {
-  window.functionize = functionize;
-}
+  function functionize(object, fn) {
+    var ret = _.bind(fn, object);
+
+    // Bind all properties
+    _.forIn(object, function(value, key) {
+      if (typeof value === 'function') {
+        ret[key] = _.bind(value, object);
+      } else {
+        ret[key] = value;
+      }
+    });
+
+    return ret;
+  }
+}).call(this);
