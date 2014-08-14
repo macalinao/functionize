@@ -12,6 +12,12 @@ This module is installed via npm:
 $ npm install functionize --save
 ```
 
+Or Bower:
+
+```bash
+$ bower install functionize --save
+```
+
 ## Example
 
 ``` js
