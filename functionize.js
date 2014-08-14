@@ -21,6 +21,9 @@
   }
 
   function functionize(object, fn) {
+    if (typeof fn === 'string') {
+      fn = object[fn];
+    }
     var ret = _.bind(fn, object);
 
     // Bind all properties

@@ -22,4 +22,18 @@ describe('functionize', function() {
     expect(object(9)).to.equal(19);
     expect(object.add(1)).to.equal(20);
   });
+
+  it('should allow strings', function() {
+    var object = {
+      counter: 1,
+      add: function(amt) {
+        return this.counter += amt;
+      }
+    };
+
+    object = functionize(object, 'add');
+    expect(object.counter).to.equal(1);
+    expect(object(9)).to.equal(10);
+    expect(object.add(1)).to.equal(11);
+  });
 });
